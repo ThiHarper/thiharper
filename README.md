@@ -18,8 +18,10 @@ serves the branch live within a minute or two of a push.
 ## Contact form
 
 Uses [Formspree](https://formspree.io) (free tier) since GitHub Pages can't
-run server-side code. The form action in `contact.html` needs a real
-Formspree form ID — see the comment above the `<form>` tag.
+run server-side code. Submissions post to the form configured at
+formspree.io and land in the inbox set up there. To point it at a
+different Formspree form, swap the `action` URL on the `<form>` tag in
+`contact.html`.
 
 ## Adding a new page
 
