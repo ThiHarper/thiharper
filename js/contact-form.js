@@ -1,3 +1,34 @@
+// Adapts the shared contact form to the selected service: swaps the date
+// field's label and hides the guest-count row when it doesn't apply
+// (e.g. a pumpkin order has no guest count). Also reads ?service=pumpkin
+// from the URL so a CTA can land here with the right service preselected.
+(function () {
+  var oServiceSelect = document.getElementById('service');
+  var oDateLabel = document.getElementById('dateLabel');
+  var oGuestRow = document.getElementById('guestCountRow');
+
+  if (!oServiceSelect || !oDateLabel || !oGuestRow) {
+    return;
+  }
+
+  var sPumpkinService = 'Custom Pumpkin';
+
+  function applyServiceFields() {
+    var bIsPumpkin = oServiceSelect.value === sPumpkinService;
+    oDateLabel.textContent = bIsPumpkin ? 'Pickup date' : 'Event date';
+    oGuestRow.hidden = bIsPumpkin;
+  }
+
+  oServiceSelect.addEventListener('change', applyServiceFields);
+
+  var oParams = new URLSearchParams(window.location.search);
+  if (oParams.get('service') === 'pumpkin') {
+    oServiceSelect.value = sPumpkinService;
+  }
+
+  applyServiceFields();
+})();
+
 // Submits the contact form via fetch instead of a full-page redirect to
 // Formspree. This avoids the back-forward cache leaving stale filled-in
 // values when a visitor clicks "Go back" from the Formspree thanks page.

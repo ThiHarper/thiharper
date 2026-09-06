@@ -385,6 +385,12 @@ p { margin: 0 0 var(--space-2); }
   margin-bottom: 0.4em;
 }
 
+.form-row label .optional {
+  color: var(--color-ink-soft);
+  font-weight: normal;
+  letter-spacing: normal;
+}
+
 .form-row input,
 .form-row select,
 .form-row textarea {
