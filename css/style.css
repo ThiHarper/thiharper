@@ -218,6 +218,14 @@ p { margin: 0 0 var(--space-2); }
   color: var(--color-ink);
 }
 
+.btn:disabled,
+.btn:disabled:hover {
+  background: var(--color-line);
+  border-color: var(--color-line);
+  color: var(--color-ink-soft);
+  cursor: not-allowed;
+}
+
 .btn-outline {
   background: transparent;
   color: var(--color-ink);
@@ -391,6 +399,10 @@ p { margin: 0 0 var(--space-2); }
   font-size: 0.85rem;
   color: var(--color-ink-soft);
   margin-top: var(--space-2);
+}
+
+.form-status[hidden] {
+  display: none;
 }
 
 .form-status {
