@@ -414,6 +414,12 @@ p { margin: 0 0 var(--space-2); }
   margin-top: var(--space-2);
 }
 
+.form-hint {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+  margin: -0.2em 0 0.6em;
+}
+
 .form-status[hidden] {
   display: none;
 }
