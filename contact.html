@@ -40,7 +40,7 @@
 
   <section class="section">
     <div class="container">
-      <form class="contact-form" action="https://formspree.io/f/xyeydabn" method="POST">
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/xyeydabn" method="POST">
         <div class="form-row">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" required>
@@ -70,6 +70,7 @@
         </div>
         <button class="btn" type="submit">Send Inquiry</button>
         <p class="form-note">I typically reply within 1&ndash;2 business days.</p>
+        <p class="form-status" id="formStatus" role="status" aria-live="polite" hidden></p>
       </form>
     </div>
   </section>
@@ -83,6 +84,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/contact-form.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
