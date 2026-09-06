@@ -95,10 +95,14 @@ p { margin: 0 0 var(--space-2); }
 }
 
 .brand {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  letter-spacing: 0.03em;
+}
+
+.brand img {
+  height: 40px;
+  width: auto;
 }
 
 .nav-toggle {
@@ -168,6 +172,22 @@ p { margin: 0 0 var(--space-2); }
   margin: 0 auto var(--space-3);
   font-size: 1.15rem;
   color: var(--color-ink-soft);
+}
+
+.standalone-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: 0 auto var(--space-3);
+}
+
+.headshot {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto var(--space-3);
+  border: 1px solid var(--color-line);
 }
 
 .hero-image {
@@ -370,14 +390,21 @@ p { margin: 0 0 var(--space-2); }
 /* ---- Footer ---- */
 
 .site-footer {
-  border-top: 1px solid var(--color-line);
-  padding: var(--space-3) 0;
+  background: var(--color-ink);
+  color: var(--color-ivory-deep);
+  padding: var(--space-4) 0 var(--space-3);
   text-align: center;
   font-size: 0.85rem;
-  color: var(--color-ink-soft);
+}
+
+.site-footer img {
+  height: 32px;
+  width: auto;
+  margin: 0 auto var(--space-2);
 }
 
 .site-footer a {
+  color: var(--color-ivory-deep);
   text-decoration: none;
-  border-bottom: 1px solid var(--color-line);
+  border-bottom: 1px solid rgba(250, 247, 242, 0.4);
 }
