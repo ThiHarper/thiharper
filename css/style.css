@@ -326,6 +326,12 @@ p { margin: 0 0 var(--space-2); }
 
 /* ---- About ---- */
 
+.bio-text {
+  max-width: 60ch;
+  margin: 0 auto;
+  text-align: left;
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
