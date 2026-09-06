@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Thi Harper Calligraphy</title>
+<meta name="description" content="Inquire about escort card calligraphy for your wedding.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Thi Harper</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h1>Let's talk about your event</h1>
+      <p class="lede">Share a few details below and I'll follow up with next steps and a quote.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <!--
+        TODO (Thi): replace YOUR_FORM_ID below with your real Formspree form ID.
+        1. Create a free account at https://formspree.io
+        2. Create a new form, point it at your inbox email
+        3. Copy the form ID from the action URL Formspree gives you
+        4. Swap it into the action="" attribute below
+      -->
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="event_date">Event date</label>
+          <input type="date" id="event_date" name="event_date">
+        </div>
+        <div class="form-row">
+          <label for="service">Service interested in</label>
+          <select id="service" name="service">
+            <option value="Escort Cards">Escort Cards</option>
+            <option value="Not sure yet">Not sure yet / something else</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="guest_count">Approximate number of guests / cards</label>
+          <input type="number" id="guest_count" name="guest_count" min="1">
+        </div>
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button class="btn" type="submit">Send Inquiry</button>
+        <p class="form-note">I typically reply within 1&ndash;2 business days.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Thi Harper Calligraphy &middot; <a href="contact.html">Get in touch</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

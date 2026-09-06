@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services &amp; Pricing | Thi Harper Calligraphy</title>
+<meta name="description" content="Escort card calligraphy pricing and what's included. More services coming soon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Thi Harper</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html" aria-current="page">Services &amp; Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Services &amp; Pricing</p>
+      <h1>Escort Cards</h1>
+      <p class="lede">Currently the only service I'm booking — pricing is simple and scales with what each card actually needs.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="service-card">
+        <h2>How pricing works</h2>
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Card</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard 2-line card (1 name line + 1 table line)</td>
+              <td>$3.00 / card</td>
+            </tr>
+            <tr>
+              <td>Each additional line</td>
+              <td>+$1.00 / line</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="note">If a long name would look cramped on one line, I'll reformat it across multiple lines for legibility at no extra charge — that's on me, not billed as an additional line. Ink, envelopes, and standard card stock are included; specialty paper is quoted separately.</p>
+        <p style="margin-top: 2rem;"><a class="btn" href="contact.html">Get a Quote for Your Guest List</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container section-head">
+      <p class="eyebrow">Coming Soon</p>
+      <h2>More services, on the way</h2>
+      <p>These are on the horizon — reach out if you'd like to be first in line once pricing is posted.</p>
+      <div class="coming-soon-grid">
+        <div>Wedding Invitations &amp; Stationery</div>
+        <div>Hand-Lettered Signage</div>
+        <div>Personalized Keepsakes<br>(ornaments, tote bags, clam shells)</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Thi Harper Calligraphy &middot; <a href="contact.html">Get in touch</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery | Thi Harper Calligraphy</title>
+<meta name="description" content="A look at hand-lettered escort cards and calligraphy work by Thi Harper.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Thi Harper</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" aria-current="page">Gallery</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Gallery</p>
+      <h1>A few favorites</h1>
+      <p class="lede">More photos are on the way — this page will grow alongside the services I offer.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="gallery-grid">
+        <figure>
+          <img src="images/escort-cards-styled.jpg" alt="Two escort cards on wooden stands beside a dip pen and ink pot">
+          <figcaption>Escort cards, styled with dip pen and ink</figcaption>
+        </figure>
+        <figure>
+          <img src="images/escort-cards-hand.jpg" alt="Hand holding two hand-lettered escort card envelopes for Table 12">
+          <figcaption>Escort card envelopes, Table 12</figcaption>
+        </figure>
+        <figure>
+          <img src="images/escort-cards-batch.jpg" alt="A finished batch of escort card envelopes with a hand-lettered keepsake envelope in front">
+          <figcaption>A finished batch, ready for pickup</figcaption>
+        </figure>
+        <figure>
+          <img src="images/complimentary-envelope.jpg" alt="An envelope hand-lettered 'To: My Love, on our wedding day' with a small heart flourish">
+          <figcaption>A complimentary keepsake for the bride</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Thi Harper Calligraphy &middot; <a href="contact.html">Get in touch</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

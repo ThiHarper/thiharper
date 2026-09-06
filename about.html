@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Thi Harper Calligraphy</title>
+<meta name="description" content="Custom calligraphy, one wedding at a time — a bit about how I work.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html">Thi Harper</a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="about.html" aria-current="page">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">About</p>
+      <h1>Hi, I'm Thi.</h1>
+      <p class="lede">I letter escort cards, stationery, and keepsakes for weddings — with black dip-pen ink, a steady hand, and a soft spot for getting every name right.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div>
+        <p class="eyebrow">How I Work</p>
+        <h2>Progress over perfection</h2>
+        <p>Weddings move fast, and I'd rather keep things moving than get stuck on process. That means quick, itemized answers when you need them, questions asked early if something's unclear, and a finished product that looks effortless — even when it wasn't.</p>
+        <p>I catch the small things before they become guest-day problems: a duplicate name across two tables, an ambiguous last name, a title that doesn't quite fit. If something needs your input, I'll ask — clearly, and only when it matters.</p>
+      </div>
+      <div>
+        <img src="images/escort-cards-hand.jpg" alt="Hand holding two hand-lettered escort card envelopes for Table 12">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container section-head">
+      <p class="eyebrow">Currently</p>
+      <h2>Booking escort cards</h2>
+      <p>See how pricing works on the <a href="services.html">Services &amp; Pricing</a> page, or reach out directly if you're ready to talk about your guest list.</p>
+      <a class="btn" href="contact.html">Contact Me</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> Thi Harper Calligraphy &middot; <a href="contact.html">Get in touch</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
