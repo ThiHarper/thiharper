@@ -251,6 +251,7 @@ p { margin: 0 0 var(--space-2); }
 
 .section {
   padding: var(--space-4) 0;
+  scroll-margin-top: 90px;
 }
 
 .section-alt {
@@ -376,6 +377,74 @@ p { margin: 0 0 var(--space-2); }
   padding: var(--space-3) var(--space-2);
   color: var(--color-ink-soft);
   font-size: 0.9rem;
+}
+
+/* ---- Home: seasonal callout ---- */
+
+.callout-image {
+  width: 100%;
+  max-height: 480px;
+  object-fit: cover;
+  border: 1px solid var(--color-line);
+}
+
+/* ---- Home: offerings grid ---- */
+
+.offerings-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 721px) {
+  .offerings-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.offering-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-line);
+  background: var(--color-ivory);
+}
+
+.offering-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.offering-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: var(--space-3);
+}
+
+.offering-card-body h3 {
+  margin-bottom: 0.4em;
+}
+
+.offering-card-body p {
+  flex: 1;
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+.offering-card-body .card-link {
+  align-self: flex-start;
+  margin-top: var(--space-2);
+  font-size: 0.9rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-ink);
+  padding-bottom: 2px;
+}
+
+.offering-card-body .card-link:hover {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
 }
 
 /* ---- Keepsakes ---- */
