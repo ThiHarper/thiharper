@@ -59,10 +59,12 @@
         </div>
         <div class="form-row">
           <label for="service">Service interested in</label>
-          <select id="service" name="service">
-            <option value="Escort Cards">Escort Cards</option>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Select a service</option>
             <option value="Custom Pumpkin">Custom Pumpkin</option>
+            <option value="Escort Cards">Escort Cards</option>
             <option value="Not sure yet">Not sure yet / something else</option>
+            <option value="Place Cards">Place Cards</option>
           </select>
         </div>
         <div class="form-row" id="guestCountRow">

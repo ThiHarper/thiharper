@@ -34,11 +34,20 @@
       dateLabel: 'Pickup date',
       hideGuestCount: true,
       messageHint: "Let me know how many pumpkins you'd like and what text or design you'd like on each (e.g. a family name, a phrase, or your own idea)."
+    },
+    'Place Cards': {
+      heading: "Let's talk about your event",
+      dateLabel: 'Event date'
     }
   };
 
   // Maps a short ?service= URL value to the <select> option's real value.
-  var aServiceParams = { pumpkin: 'Custom Pumpkin' };
+  // Add an entry here whenever a new CTA links in with ?service=<slug>.
+  var aServiceParams = {
+    pumpkin: 'Custom Pumpkin',
+    'escort-cards': 'Escort Cards',
+    'place-cards': 'Place Cards'
+  };
 
   function applyServiceFields() {
     var oConfig = Object.assign({}, oDefaultConfig, oServiceConfig[oServiceSelect.value]);
@@ -81,6 +90,7 @@
 
   Array.prototype.forEach.call(aRequiredFields, function (oField) {
     oField.addEventListener('input', updateSubmitState);
+    oField.addEventListener('change', updateSubmitState);
   });
 
   updateSubmitState();
