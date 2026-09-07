@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery | Thi Harper Calligraphy</title>
-<meta name="description" content="A look at hand-lettered escort cards and calligraphy work by Thi Harper.">
+<meta name="description" content="Selected pointed pen calligraphy, custom stationery, and hand-lettered keepsakes by Thi Harper.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
@@ -33,30 +33,64 @@
   <section class="hero">
     <div class="container">
       <p class="eyebrow">Gallery</p>
-      <h1>A few favorites</h1>
-      <p class="lede">More photos are on the way — this page will grow alongside the services I offer.</p>
+      <h1>Selected Work</h1>
+      <p class="lede">Pointed pen calligraphy and custom stationery for weddings and events, plus hand-lettered pieces across cardstock, acrylic, canvas, and seasonal surfaces.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
+      <div class="gallery-filters" role="group" aria-label="Filter gallery by category">
+        <button type="button" class="is-active" aria-pressed="true" data-filter="all">All</button>
+        <button type="button" aria-pressed="false" data-filter="weddings">Weddings &amp; Events</button>
+        <button type="button" aria-pressed="false" data-filter="keepsakes">Custom Keepsakes</button>
+        <button type="button" aria-pressed="false" data-filter="process">Process &amp; Details</button>
+      </div>
+
       <div class="gallery-grid">
-        <figure>
+        <figure data-category="weddings process">
           <img src="images/escort-cards-styled.jpg" alt="Two escort cards on wooden stands beside a dip pen and ink pot">
-          <figcaption>Escort cards, styled with dip pen and ink</figcaption>
+          <figcaption>Dip pen and iron gall ink, styled beside finished escort cards</figcaption>
         </figure>
-        <figure>
+        <figure data-category="weddings">
           <img src="images/escort-cards-hand.jpg" alt="Hand holding two hand-lettered escort card envelopes for Table 12">
-          <figcaption>Escort card envelopes, Table 12</figcaption>
+          <figcaption>Pointed pen calligraphy on cardstock, escort card envelopes</figcaption>
         </figure>
-        <figure>
+        <figure data-category="weddings">
           <img src="images/escort-cards-batch.jpg" alt="A finished batch of escort card envelopes with a hand-lettered keepsake envelope in front">
-          <figcaption>A finished batch, ready for pickup</figcaption>
+          <figcaption>A finished set of escort cards, ready for pickup</figcaption>
         </figure>
-        <figure>
+        <figure data-category="weddings">
           <img src="images/complimentary-envelope.jpg" alt="An envelope hand-lettered 'To: My Love, on our wedding day' with a small heart flourish">
-          <figcaption>A complimentary keepsake for the bride</figcaption>
+          <figcaption>A hand-lettered keepsake envelope, gifted alongside a client order</figcaption>
         </figure>
+        <figure data-category="keepsakes">
+          <img src="images/pumpkin-lettering.jpg" alt="Hand-lettered pumpkin reading 'ghouls just wanna have fun' with painted ghost illustrations">
+          <figcaption>White ink pointed pen lettering on a seasonal pumpkin</figcaption>
+        </figure>
+        <figure data-category="keepsakes">
+          <img src="images/keepsake-ornament-ball.jpg" alt="White glass ball ornament hand-lettered 'James' 1st Christmas 2022' in gold with a red velvet bow">
+          <figcaption>Gold ink lettering on a glass ornament, personalized for a first Christmas</figcaption>
+        </figure>
+        <figure data-category="keepsakes">
+          <img src="images/keepsake-ornament-acrylic.jpg" alt="Clear round acrylic ornament hand-lettered 'The Weyand Family' with a red ribbon">
+          <figcaption>Hand-lettered clear acrylic ornament, painted in white ink</figcaption>
+        </figure>
+        <figure data-category="keepsakes">
+          <img src="images/keepsake-teacher-bag.jpg" alt="Jute tote bag hand-lettered 'It takes a big heart to shape little minds'">
+          <figcaption>Pointed pen lettering on a jute tote bag</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container section-head">
+      <h2>Interested in something similar?</h2>
+      <p>Browse services and pricing, or reach out to talk through your project.</p>
+      <div class="btn-row btn-row-center">
+        <a class="btn" href="contact.html">Get in Touch</a>
+        <a class="btn btn-outline" href="services.html">View Services &amp; Pricing</a>
       </div>
     </div>
   </section>
@@ -70,6 +104,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/gallery-filter.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

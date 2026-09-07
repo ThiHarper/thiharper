@@ -243,6 +243,10 @@ p { margin: 0 0 var(--space-2); }
   margin-top: var(--space-2);
 }
 
+.btn-row-center {
+  justify-content: center;
+}
+
 /* ---- Sections ---- */
 
 .section {
@@ -260,6 +264,35 @@ p { margin: 0 0 var(--space-2); }
 }
 
 /* ---- Gallery ---- */
+
+.gallery-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.gallery-filters button {
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  padding: 0 0 2px;
+  border-bottom: 1px solid transparent;
+}
+
+.gallery-filters button:hover {
+  color: var(--color-ink);
+}
+
+.gallery-filters button.is-active {
+  color: var(--color-ink);
+  border-bottom-color: var(--color-ink);
+}
 
 .gallery-grid {
   display: grid;
