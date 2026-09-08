@@ -1,19 +1,21 @@
 // Adapts the shared contact form to the selected service: swaps the hero
 // heading and date label, shows the guest/card-count row only for services
-// that involve counting cards, and shows a service-specific message hint
-// when it applies (e.g. a pumpkin order has no guest count, but does need
-// a quantity/text hint). Also reads a ?service= URL param (general inquiry
+// that involve counting cards, hides the date row for services with no
+// fixed date to give, and shows a service-specific message hint when it
+// applies (e.g. a pumpkin order has no guest count, but does need a
+// quantity/text hint). Also reads a ?service= URL param (general inquiry
 // CTAs, see aServiceParams) or a ?item= URL param (product "Order" buttons
 // on services.html, see aItemParams) so a CTA can land here with the right
 // service preselected — add an entry to the matching map for a new CTA.
 (function () {
   var oServiceSelect = document.getElementById('service');
   var oHeroHeading = document.getElementById('heroHeading');
+  var oDateRow = document.getElementById('dateRow');
   var oDateLabel = document.getElementById('dateLabel');
   var oGuestRow = document.getElementById('guestCountRow');
   var oMessageHint = document.getElementById('messageHint');
 
-  if (!oServiceSelect || !oHeroHeading || !oDateLabel || !oGuestRow || !oMessageHint) {
+  if (!oServiceSelect || !oHeroHeading || !oDateRow || !oDateLabel || !oGuestRow || !oMessageHint) {
     return;
   }
 
@@ -21,11 +23,14 @@
   // derived, so adding a new service can't accidentally inherit the wrong
   // heading/date label from a generic "is this an event" guess. The guest
   // /card-count row defaults to hidden — only services that involve
-  // counting cards (place cards, escort cards) turn it back on.
+  // counting cards (place cards, escort cards) turn it back on. The date
+  // row defaults to shown — only services with no fixed date to give
+  // (ready-made keepsakes, or "not sure yet") hide it.
   var oDefaultConfig = {
     heading: "Let's talk about your project",
     dateLabel: 'Date',
     hideGuestCount: true,
+    hideDate: false,
     messageHint: ''
   };
   var oServiceConfig = {
@@ -44,9 +49,10 @@
       dateLabel: 'Event date',
       hideGuestCount: false
     },
-    'Clear Round Acrylic Ornament': { heading: 'Order Your Custom Keepsake' },
-    'Teacher Jute Bag': { heading: 'Order Your Custom Keepsake' },
-    'White Ball Ornament': { heading: 'Order Your Custom Keepsake' }
+    'Clear Round Acrylic Ornament': { heading: 'Order Your Custom Keepsake', hideDate: true },
+    'Teacher Jute Bag': { heading: 'Order Your Custom Keepsake', hideDate: true },
+    'White Ball Ornament': { heading: 'Order Your Custom Keepsake', hideDate: true },
+    'Not sure yet': { hideDate: true }
   };
 
   // Maps a short ?service= URL value to the <select> option's real value.
@@ -75,6 +81,7 @@
     var oConfig = Object.assign({}, oDefaultConfig, oServiceConfig[oServiceSelect.value]);
     oHeroHeading.textContent = oConfig.heading;
     oDateLabel.textContent = oConfig.dateLabel;
+    oDateRow.hidden = oConfig.hideDate;
     oGuestRow.hidden = oConfig.hideGuestCount;
     oMessageHint.hidden = !oConfig.messageHint;
     oMessageHint.textContent = oConfig.messageHint;
