@@ -423,6 +423,10 @@ p { margin: 0 0 var(--space-2); }
   font-size: 0.9rem;
 }
 
+.coming-soon-grid + h3 {
+  margin-top: var(--space-4);
+}
+
 /* ---- Home: seasonal callout ---- */
 
 .callout-image {
@@ -655,6 +659,43 @@ p { margin: 0 0 var(--space-2); }
 
 .form-status.form-status-error {
   border-left-color: #a33;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Email signup ---- */
+
+.signup-form {
+  display: flex;
+  gap: var(--space-2);
+  max-width: 420px;
+  margin: var(--space-3) auto 0;
+}
+
+.signup-form input[type="email"] {
+  flex: 1;
+  padding: 0.7em;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  border: 1px solid var(--color-line);
+  background: var(--color-ivory);
+  color: var(--color-ink);
+}
+
+@media (max-width: 600px) {
+  .signup-form {
+    flex-direction: column;
+  }
 }
 
 .form-status.form-status-error::before {
