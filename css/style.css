@@ -753,3 +753,26 @@ p { margin: 0 0 var(--space-2); }
   text-decoration: none;
   border-bottom: 1px solid rgba(250, 247, 242, 0.4);
 }
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.footer-social a {
+  border-bottom: none;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.footer-social a:hover {
+  opacity: 1;
+}
+
+.footer-social svg {
+  display: block;
+  width: 20px;
+  height: 20px;
+}
