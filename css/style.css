@@ -540,6 +540,10 @@ p { margin: 0 0 var(--space-2); }
   margin: 0.3em 0 0;
 }
 
+.keepsake-item-body .btn {
+  margin-top: var(--space-3);
+}
+
 /* ---- About ---- */
 
 .bio-text {

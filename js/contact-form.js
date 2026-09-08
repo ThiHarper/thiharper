@@ -1,9 +1,11 @@
 // Adapts the shared contact form to the selected service: swaps the hero
-// heading and date label, hides the guest-count row, and shows a
-// service-specific message hint when it applies (e.g. a pumpkin order has
-// no guest count, but does need a quantity/text hint). Also reads a
-// ?service= URL param so a CTA can land here with the right service
-// preselected — see aServiceParams below to add another CTA's mapping.
+// heading and date label, shows the guest/card-count row only for services
+// that involve counting cards, and shows a service-specific message hint
+// when it applies (e.g. a pumpkin order has no guest count, but does need
+// a quantity/text hint). Also reads a ?service= URL param (general inquiry
+// CTAs, see aServiceParams) or a ?item= URL param (product "Order" buttons
+// on services.html, see aItemParams) so a CTA can land here with the right
+// service preselected — add an entry to the matching map for a new CTA.
 (function () {
   var oServiceSelect = document.getElementById('service');
   var oHeroHeading = document.getElementById('heroHeading');
@@ -17,36 +19,56 @@
 
   // Per-service config — every field is explicit per service rather than
   // derived, so adding a new service can't accidentally inherit the wrong
-  // heading/date label from a generic "is this an event" guess.
+  // heading/date label from a generic "is this an event" guess. The guest
+  // /card-count row defaults to hidden — only services that involve
+  // counting cards (place cards, escort cards) turn it back on.
   var oDefaultConfig = {
     heading: "Let's talk about your project",
     dateLabel: 'Date',
-    hideGuestCount: false,
+    hideGuestCount: true,
     messageHint: ''
   };
   var oServiceConfig = {
     'Escort Cards': {
       heading: "Let's talk about your event",
-      dateLabel: 'Event date'
+      dateLabel: 'Event date',
+      hideGuestCount: false
     },
     'Custom Pumpkin': {
       heading: "Let's talk about your pumpkin order",
       dateLabel: 'Pickup date',
-      hideGuestCount: true,
       messageHint: "Let me know how many pumpkins you'd like and what text or design you'd like on each (e.g. a family name, a phrase, or your own idea)"
     },
     'Place Cards': {
       heading: "Let's talk about your event",
-      dateLabel: 'Event date'
-    }
+      dateLabel: 'Event date',
+      hideGuestCount: false
+    },
+    'Clear Round Acrylic Ornament': { heading: 'Order Your Custom Keepsake' },
+    'Teacher Jute Bag': { heading: 'Order Your Custom Keepsake' },
+    'White Ball Ornament': { heading: 'Order Your Custom Keepsake' }
   };
 
   // Maps a short ?service= URL value to the <select> option's real value.
-  // Add an entry here whenever a new CTA links in with ?service=<slug>.
+  // Add an entry here whenever a new general-inquiry CTA links in with
+  // ?service=<slug>.
   var aServiceParams = {
     pumpkin: 'Custom Pumpkin',
     'escort-cards': 'Escort Cards',
     'place-cards': 'Place Cards'
+  };
+
+  // Maps a short ?item= URL value (from a product "Order" button on
+  // services.html) to the <select> option's real value. Landing via ?item=
+  // always shows the "Order Your Custom Keepsake" heading (see below),
+  // even when the mapped value is shared with a ?service= entry point
+  // (e.g. fall-pumpkin reuses the "Custom Pumpkin" option) that has its
+  // own, different heading for a general inquiry.
+  var aItemParams = {
+    'fall-pumpkin': 'Custom Pumpkin',
+    'white-ball-ornament': 'White Ball Ornament',
+    'acrylic-ornament': 'Clear Round Acrylic Ornament',
+    'teacher-bag': 'Teacher Jute Bag'
   };
 
   function applyServiceFields() {
@@ -61,12 +83,19 @@
   oServiceSelect.addEventListener('change', applyServiceFields);
 
   var oParams = new URLSearchParams(window.location.search);
+  var sMappedItem = aItemParams[oParams.get('item')];
   var sMappedService = aServiceParams[oParams.get('service')];
-  if (sMappedService) {
+  if (sMappedItem) {
+    oServiceSelect.value = sMappedItem;
+  } else if (sMappedService) {
     oServiceSelect.value = sMappedService;
   }
 
   applyServiceFields();
+
+  if (sMappedItem) {
+    oHeroHeading.textContent = 'Order Your Custom Keepsake';
+  }
 })();
 
 // Submits the contact form via fetch instead of a full-page redirect to
