@@ -33,7 +33,7 @@
       heading: "Let's talk about your pumpkin order",
       dateLabel: 'Pickup date',
       hideGuestCount: true,
-      messageHint: "Let me know how many pumpkins you'd like and what text or design you'd like on each (e.g. a family name, a phrase, or your own idea)."
+      messageHint: "Let me know how many pumpkins you'd like and what text or design you'd like on each (e.g. a family name, a phrase, or your own idea)"
     },
     'Place Cards': {
       heading: "Let's talk about your event",

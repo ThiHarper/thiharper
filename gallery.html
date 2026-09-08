@@ -34,7 +34,7 @@
     <div class="container">
       <p class="eyebrow">Gallery</p>
       <h1>Selected Work</h1>
-      <p class="lede">Pointed pen calligraphy and custom stationery for weddings and events, plus hand-lettered pieces across cardstock, acrylic, canvas, and seasonal surfaces.</p>
+      <p class="lede">Pointed pen calligraphy and custom stationery for weddings and events, plus hand-lettered pieces across cardstock, acrylic, canvas, and seasonal surfaces</p>
     </div>
   </section>
 
@@ -227,7 +227,7 @@
   <section class="section section-alt">
     <div class="container section-head">
       <h2>Interested in something similar?</h2>
-      <p>Browse services and pricing, or reach out to talk through your project.</p>
+      <p>Browse services and pricing, or reach out to talk through your project</p>
       <div class="btn-row btn-row-center">
         <a class="btn" href="contact.html">Get in Touch</a>
         <a class="btn btn-outline" href="services.html">View Services &amp; Pricing</a>
@@ -235,6 +235,11 @@
     </div>
   </section>
 </main>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button type="button" class="lightbox-close" aria-label="Close">&times;</button>
+  <img class="lightbox-image" id="lightboxImage" src="" alt="">
+</div>
 
 <footer class="site-footer">
   <div class="container">
@@ -245,6 +250,7 @@
 
 <script src="js/main.js"></script>
 <script src="js/gallery-filter.js"></script>
+<script src="js/gallery-lightbox.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
