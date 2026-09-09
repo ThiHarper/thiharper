@@ -544,10 +544,6 @@ p { margin: 0 0 var(--space-2); }
   margin: 0.3em 0 0;
 }
 
-.keepsake-item-body .btn {
-  margin-top: var(--space-3);
-}
-
 /* ---- Add to cart (product cards) ---- */
 
 .add-to-cart {
