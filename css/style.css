@@ -992,3 +992,31 @@ p { margin: 0 0 var(--space-2); }
   width: 20px;
   height: 20px;
 }
+
+.footer-legal {
+  margin-bottom: var(--space-1);
+}
+
+.footer-legal a {
+  margin: 0 var(--space-1);
+}
+
+/* ---- Legal pages ---- */
+
+.legal-content h2 {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  margin-top: var(--space-4);
+}
+
+.legal-content h2:first-child {
+  margin-top: 0;
+}
+
+.legal-content ul {
+  margin: 0 0 var(--space-2);
+  padding-left: var(--space-3);
+}
+
+.legal-content li {
+  margin-bottom: var(--space-1);
+}
