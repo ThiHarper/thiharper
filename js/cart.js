@@ -3,6 +3,14 @@
 // cart drawer itself and appends them to the page, so every page only
 // needs a single <script src="js/cart.js"> tag — no HTML duplication.
 //
+// Each "Add to Cart" click adds exactly one item, carrying its own
+// personalization text — there's no quantity field anywhere (on the
+// product card or in the drawer). Wanting two of something just means
+// clicking Add to Cart twice; each click is its own cart row, since two
+// units of a personalized keepsake usually carry two different names
+// anyway. Simpler than a quantity stepper, and avoids the "bumped qty to
+// 2 but there's nowhere to give the second item its own text" trap.
+//
 // Real Stripe checkout is built and tested (see the Cloudflare Worker at
 // CHECKOUT_WORKER_URL — thiharper-cart-checkout, currently running
 // Stripe TEST keys). STRIPE_ENABLED stays false until: (1) the Worker's
@@ -26,7 +34,7 @@
     return;
   }
 
-  // ---- Cart storage ----
+  // ---- Cart storage — each entry is one unit ----
 
   function GetCart() {
     try {
@@ -45,12 +53,8 @@
     }
   }
 
-  function GetCartCount(aCart) {
-    return aCart.reduce(function (nSum, oItem) { return nSum + oItem.qty; }, 0);
-  }
-
   function GetCartSubtotal(aCart) {
-    return aCart.reduce(function (nSum, oItem) { return nSum + oItem.unitPrice * oItem.qty; }, 0);
+    return aCart.reduce(function (nSum, oItem) { return nSum + oItem.unitPrice; }, 0);
   }
 
   function GetShippingInfo(aCart) {
@@ -110,7 +114,7 @@
   var oBadge = oCartToggle.querySelector('.cart-badge');
 
   function RenderBadge() {
-    var nCount = GetCartCount(GetCart());
+    var nCount = GetCart().length;
     if (nCount > 0) {
       oBadge.textContent = String(nCount);
       oBadge.hidden = false;
@@ -186,16 +190,9 @@
         '<div class="cart-item-info">' +
         '<p class="cart-item-name">' + EscapeHtml(oItem.name) + '</p>' +
         (oItem.personalization ? '<p class="cart-item-note">"' + EscapeHtml(oItem.personalization) + '"</p>' : '') +
-        '<div class="cart-item-controls">' +
-        '<div class="qty-stepper">' +
-        '<button type="button" class="cart-qty-decrease" aria-label="Decrease quantity">&minus;</button>' +
-        '<input type="number" class="qty-input cart-qty-input" value="' + oItem.qty + '" min="1" max="20" aria-label="Quantity">' +
-        '<button type="button" class="cart-qty-increase" aria-label="Increase quantity">+</button>' +
-        '</div>' +
         '<button type="button" class="cart-item-remove">Remove</button>' +
         '</div>' +
-        '</div>' +
-        '<p class="cart-item-price">' + FormatPrice(oItem.unitPrice * oItem.qty) + '</p>' +
+        '<p class="cart-item-price">' + FormatPrice(oItem.unitPrice) + '</p>' +
         '</div>';
     });
 
@@ -224,15 +221,6 @@
     Array.prototype.forEach.call(oCartItemsEl.querySelectorAll('.cart-item'), function (oRow) {
       var nIndex = Number(oRow.getAttribute('data-index'));
 
-      oRow.querySelector('.cart-qty-decrease').addEventListener('click', function () {
-        ChangeQty(nIndex, -1);
-      });
-      oRow.querySelector('.cart-qty-increase').addEventListener('click', function () {
-        ChangeQty(nIndex, 1);
-      });
-      oRow.querySelector('.cart-qty-input').addEventListener('change', function (oEvent) {
-        SetQty(nIndex, Number(oEvent.target.value));
-      });
       oRow.querySelector('.cart-item-remove').addEventListener('click', function () {
         var aCart = GetCart();
         aCart.splice(nIndex, 1);
@@ -241,25 +229,6 @@
         RenderDrawer();
       });
     });
-  }
-
-  function ChangeQty(nIndex, nDelta) {
-    var aCart = GetCart();
-    if (!aCart[nIndex]) {
-      return;
-    }
-    SetQty(nIndex, aCart[nIndex].qty + nDelta);
-  }
-
-  function SetQty(nIndex, nNewQty) {
-    var aCart = GetCart();
-    if (!aCart[nIndex]) {
-      return;
-    }
-    aCart[nIndex].qty = Math.max(1, Math.min(20, Math.round(nNewQty) || 1));
-    SaveCart(aCart);
-    RenderBadge();
-    RenderDrawer();
   }
 
   function EscapeHtml(sText) {
@@ -284,7 +253,7 @@
     var aRequestItems = aCart.map(function (oItem) {
       return {
         id: oItem.id,
-        qty: oItem.qty,
+        qty: 1,
         personalization: oItem.personalization,
         addonSelected: !!oItem.addonSelected
       };
@@ -332,11 +301,11 @@
 
     var sSummary = "Here's my order:\n\n";
     aCart.forEach(function (oItem) {
-      sSummary += '- ' + oItem.qty + 'x ' + oItem.name;
+      sSummary += '- ' + oItem.name;
       if (oItem.personalization) {
         sSummary += ' — "' + oItem.personalization + '"';
       }
-      sSummary += ' (' + FormatPrice(oItem.unitPrice * oItem.qty) + ')\n';
+      sSummary += ' (' + FormatPrice(oItem.unitPrice) + ')\n';
     });
     sSummary += '\nSubtotal: ' + FormatPrice(nSubtotal);
     sSummary += '\nShipping: ' + oShipping.label;
@@ -359,22 +328,11 @@
     var nBasePrice = Number(oCard.getAttribute('data-product-price'));
     var bPickupOnly = oCard.getAttribute('data-pickup-only') === 'true';
 
-    var oQtyInput = oCard.querySelector('.qty-input');
-    var oDecreaseBtn = oCard.querySelector('.qty-decrease');
-    var oIncreaseBtn = oCard.querySelector('.qty-increase');
     var oPersonalizeInput = oCard.querySelector('.personalize-input');
     var oAddonInput = oCard.querySelector('.addon-input');
     var oAddBtn = oCard.querySelector('.add-to-cart-btn');
 
-    oDecreaseBtn.addEventListener('click', function () {
-      oQtyInput.value = Math.max(1, Number(oQtyInput.value) - 1);
-    });
-    oIncreaseBtn.addEventListener('click', function () {
-      oQtyInput.value = Math.min(20, Number(oQtyInput.value) + 1);
-    });
-
     oAddBtn.addEventListener('click', function () {
-      var nQty = Math.max(1, Math.min(20, Number(oQtyInput.value) || 1));
       var sPersonalization = oPersonalizeInput ? oPersonalizeInput.value.trim() : '';
       var bAddonSelected = oAddonInput ? oAddonInput.checked : false;
       var nAddonPrice = bAddonSelected ? Number(oAddonInput.getAttribute('data-addon-price')) : 0;
@@ -384,29 +342,16 @@
         id: sId,
         name: sName + (sAddonLabel ? ' (' + sAddonLabel + ')' : ''),
         unitPrice: nBasePrice + nAddonPrice,
-        qty: nQty,
         pickupOnly: bPickupOnly,
         personalization: sPersonalization,
         addonSelected: bAddonSelected
       };
 
       var aCart = GetCart();
-      var oExisting = aCart.find(function (oItem) {
-        return oItem.id === oNewItem.id &&
-          oItem.personalization === oNewItem.personalization &&
-          oItem.unitPrice === oNewItem.unitPrice;
-      });
-
-      if (oExisting) {
-        oExisting.qty = Math.min(20, oExisting.qty + nQty);
-      } else {
-        aCart.push(oNewItem);
-      }
-
+      aCart.push(oNewItem);
       SaveCart(aCart);
       RenderBadge();
 
-      oQtyInput.value = 1;
       if (oPersonalizeInput) {
         oPersonalizeInput.value = '';
       }

@@ -575,12 +575,6 @@ p { margin: 0 0 var(--space-2); }
   color: var(--color-ink);
 }
 
-.add-to-cart-hint {
-  font-size: 0.78rem;
-  color: var(--color-ink-soft);
-  margin: 0 0 var(--space-2);
-}
-
 .addon-checkbox {
   display: flex;
   align-items: center;
@@ -589,55 +583,6 @@ p { margin: 0 0 var(--space-2); }
   color: var(--color-ink-soft);
   margin-bottom: var(--space-2);
   cursor: pointer;
-}
-
-.qty-row {
-  display: flex;
-  align-items: stretch;
-  gap: var(--space-2);
-}
-
-.qty-stepper {
-  display: flex;
-  align-items: stretch;
-  border: 1px solid var(--color-ink);
-  flex-shrink: 0;
-}
-
-.qty-stepper button {
-  width: 36px;
-  background: transparent;
-  border: none;
-  font-size: 1.1rem;
-  color: var(--color-ink);
-  cursor: pointer;
-}
-
-.qty-stepper button:hover {
-  background: var(--color-ivory-deep);
-}
-
-.qty-stepper .qty-input {
-  width: 40px;
-  border: none;
-  border-left: 1px solid var(--color-ink);
-  border-right: 1px solid var(--color-ink);
-  text-align: center;
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  color: var(--color-ink);
-  background: var(--color-ivory);
-  -moz-appearance: textfield;
-}
-
-.qty-stepper .qty-input::-webkit-outer-spin-button,
-.qty-stepper .qty-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.add-to-cart-btn {
-  flex: 1;
 }
 
 /* ---- Cart toggle + drawer ---- */
@@ -757,21 +702,8 @@ p { margin: 0 0 var(--space-2); }
   margin: 0 0 0.4em;
 }
 
-.cart-item-controls {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-}
-
-.cart-item-controls .qty-stepper button {
-  width: 28px;
-}
-
-.cart-item-controls .qty-stepper .qty-input {
-  width: 32px;
-}
-
 .cart-item-remove {
+  display: block;
   background: none;
   border: none;
   color: var(--color-ink-soft);
