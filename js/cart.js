@@ -3,12 +3,17 @@
 // cart drawer itself and appends them to the page, so every page only
 // needs a single <script src="js/cart.js"> tag — no HTML duplication.
 //
-// Online payment (Stripe) isn't wired up yet. Until STRIPE_ENABLED is
-// flipped on, "Checkout" hands the cart off to the existing contact form
-// as a pre-filled order message instead of leaving visitors at a dead
-// end — see GoToCheckout().
+// Real Stripe checkout is built and tested (see the Cloudflare Worker at
+// CHECKOUT_WORKER_URL — thiharper-cart-checkout, currently running
+// Stripe TEST keys). STRIPE_ENABLED stays false until: (1) the Worker's
+// STRIPE_SECRET_KEY secret is swapped for a Stripe LIVE restricted key,
+// and (2) that's an explicit, separate go-ahead — real money starts
+// moving the moment this flips on. Until then, "Checkout" hands the cart
+// off to the existing contact form as a pre-filled order message instead
+// of leaving visitors at a dead end — see GoToCheckout().
 (function () {
   var STRIPE_ENABLED = false;
+  var CHECKOUT_WORKER_URL = 'https://thiharper-cart-checkout.thi-mai-harper.workers.dev';
   var STORAGE_KEY = 'thiharper_cart';
   var PENDING_ORDER_KEY = 'thiharper_pending_order';
   var SHIPPING_FEE = 6;
@@ -189,7 +194,8 @@
         ? "You'll enter payment details on the next step."
         : "Online payment is almost ready! For now, checkout sends your order details straight to Thi, who'll follow up to confirm and collect payment.") +
       '</p>' +
-      '<button type="button" class="btn cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>';
+      '<button type="button" class="btn cart-checkout-btn" id="cartCheckoutBtn">Checkout</button>' +
+      '<p class="cart-error" id="cartError" hidden></p>';
 
     oCartItemsEl.innerHTML = sHtml;
     WireItemControls();
@@ -246,6 +252,51 @@
     return oDiv.innerHTML;
   }
 
+  // ---- Real Stripe checkout, via the thiharper-cart-checkout Worker ----
+
+  function GoToStripeCheckout(aCart) {
+    var oCheckoutBtn = document.getElementById('cartCheckoutBtn');
+    var oErrorEl = document.getElementById('cartError');
+    var sOriginalLabel = oCheckoutBtn.textContent;
+
+    oCheckoutBtn.disabled = true;
+    oCheckoutBtn.textContent = 'Redirecting…';
+    if (oErrorEl) {
+      oErrorEl.hidden = true;
+    }
+
+    var aRequestItems = aCart.map(function (oItem) {
+      return {
+        id: oItem.id,
+        qty: oItem.qty,
+        personalization: oItem.personalization,
+        addonSelected: !!oItem.addonSelected
+      };
+    });
+
+    fetch(CHECKOUT_WORKER_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ cart: aRequestItems })
+    })
+      .then(function (oResponse) {
+        return oResponse.json().then(function (oData) {
+          if (!oResponse.ok || !oData.url) {
+            throw new Error(oData.error || 'Something went wrong starting checkout.');
+          }
+          window.location.href = oData.url;
+        });
+      })
+      .catch(function (oError) {
+        oCheckoutBtn.disabled = false;
+        oCheckoutBtn.textContent = sOriginalLabel;
+        if (oErrorEl) {
+          oErrorEl.textContent = oError.message || 'Something went wrong starting checkout. Please try again.';
+          oErrorEl.hidden = false;
+        }
+      });
+  }
+
   // ---- Checkout handoff (pre-Stripe) ----
 
   function GoToCheckout() {
@@ -255,7 +306,7 @@
     }
 
     if (STRIPE_ENABLED) {
-      // TODO: create a Stripe Checkout Session and redirect to it.
+      GoToStripeCheckout(aCart);
       return;
     }
 
@@ -319,7 +370,8 @@
         unitPrice: nBasePrice + nAddonPrice,
         qty: nQty,
         pickupOnly: bPickupOnly,
-        personalization: sPersonalization
+        personalization: sPersonalization,
+        addonSelected: bAddonSelected
       };
 
       var aCart = GetCart();

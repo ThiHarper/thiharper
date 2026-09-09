@@ -805,6 +805,16 @@ p { margin: 0 0 var(--space-2); }
   margin-top: var(--space-1);
 }
 
+.cart-error {
+  color: #a33;
+  font-size: 0.85rem;
+  margin: var(--space-2) 0 0;
+}
+
+.cart-error[hidden] {
+  display: none;
+}
+
 /* ---- About ---- */
 
 .bio-text {

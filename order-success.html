@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Confirmed | Thi Harper Calligraphy</title>
+<meta name="description" content="Your order has been received.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css?v=6">
+<link rel="icon" type="image/png" href="images/logo-mark.png">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a class="brand" href="index.html"><img src="images/logo-black.png" alt="Thi Harper Calligraphy"></a>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">&#9776;</button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="services.html">Services &amp; Pricing</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Order Confirmed</p>
+      <h1>Thank you!</h1>
+      <p class="lede">Your order has been received and your payment was successful. I'll follow up by email shortly to confirm pickup or shipping details.</p>
+      <div class="btn-row btn-row-center">
+        <a class="btn" href="services.html">Continue Browsing</a>
+        <a class="btn btn-outline" href="index.html">Back to Home</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <img src="images/logo-white.png" alt="Thi Harper Calligraphy">
+    <div class="footer-social">
+      <a href="https://instagram.com/thiharpercalligraphy" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r="0.6" fill="currentColor" stroke="none"></circle></svg>
+      </a>
+      <a href="https://www.facebook.com/ThiHarperCalligraphy/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h-2a4 4 0 0 0-4 4v3H6v4h3v7h4v-7h2.5l.5-4H13V7a1 1 0 0 1 1-1h3V3z"></path></svg>
+      </a>
+    </div>
+    <p>&copy; <span id="year"></span> Thi Harper Calligraphy &middot; <a href="contact.html">Get in touch</a></p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/cart.js"></script>
+<script>
+  // Clear the cart now that checkout completed successfully.
+  try {
+    localStorage.removeItem('thiharper_cart');
+  } catch (e) {}
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+<!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7a4366d158c54782a2ad3c0936f60c97"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
