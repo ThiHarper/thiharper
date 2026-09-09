@@ -85,10 +85,26 @@
     '<path d="M2.5 3h2l2.68 12.39a2 2 0 0 0 2 1.61h8.64a2 2 0 0 0 2-1.61L21.5 8H6"></path>' +
     '</svg><span class="cart-badge" hidden></span>';
 
+  // Group the nav links, the cart icon, and (on mobile) the hamburger
+  // into one wrapper so they land together at the right edge of the
+  // header — see the .header-right comment in style.css for why a flat
+  // list of flex children doesn't do that on its own.
+  var oNav = document.querySelector('.site-nav');
+  var oHeaderRight = document.createElement('div');
+  oHeaderRight.className = 'header-right';
+
   if (oNavToggle) {
-    oHeaderContainer.insertBefore(oCartToggle, oNavToggle);
+    oHeaderContainer.insertBefore(oHeaderRight, oNavToggle);
   } else {
-    oHeaderContainer.appendChild(oCartToggle);
+    oHeaderContainer.appendChild(oHeaderRight);
+  }
+
+  if (oNav) {
+    oHeaderRight.appendChild(oNav);
+  }
+  oHeaderRight.appendChild(oCartToggle);
+  if (oNavToggle) {
+    oHeaderRight.appendChild(oNavToggle);
   }
 
   var oBadge = oCartToggle.querySelector('.cart-badge');

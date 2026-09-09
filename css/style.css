@@ -105,6 +105,17 @@ p { margin: 0 0 var(--space-2); }
   width: auto;
 }
 
+/* Groups the nav links with the cart icon (and the hamburger, on mobile)
+   as a single flex item, so .container's space-between puts the brand on
+   the left and this whole cluster on the right — without it, the cart
+   icon (a separate flex child) would land wherever space-between's
+   even distribution happened to put it, not flush at the edge. */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -142,7 +153,13 @@ p { margin: 0 0 var(--space-2); }
 
   .site-nav {
     display: none;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--color-ivory);
+    border-bottom: 1px solid var(--color-line);
+    padding: 0 var(--space-3);
   }
 
   .site-nav.is-open {
@@ -153,10 +170,6 @@ p { margin: 0 0 var(--space-2); }
     flex-direction: column;
     gap: var(--space-2);
     padding-bottom: var(--space-3);
-  }
-
-  .site-header .container {
-    flex-wrap: wrap;
   }
 }
 
