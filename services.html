@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=2">
+<link rel="stylesheet" href="css/style.css?v=3">
 <link rel="icon" type="image/png" href="images/logo-mark.png">
 </head>
 <body>
@@ -104,7 +104,18 @@
             <h3>Fall Pumpkin</h3>
             <p>Real pumpkin customized with hand-lettered text in white ink. Hand-selected for quality, though natural variations in size, shape, and texture occur. Brighton and Novi pickup.</p>
             <p class="price">$25 / each</p>
-            <a class="btn" href="contact.html?item=fall-pumpkin">Order Fall Pumpkin</a>
+            <div class="add-to-cart" data-product-id="fall-pumpkin" data-product-name="Fall Pumpkin" data-product-price="25" data-pickup-only="true">
+              <label class="sr-only" for="personalize-fall-pumpkin">Personalization for Fall Pumpkin</label>
+              <input type="text" id="personalize-fall-pumpkin" class="personalize-input" placeholder="Name or phrase for your pumpkin">
+              <div class="qty-row">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-decrease" aria-label="Decrease quantity">&minus;</button>
+                  <input type="number" class="qty-input" value="1" min="1" max="20" aria-label="Quantity">
+                  <button type="button" class="qty-increase" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="btn add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -114,7 +125,18 @@
             <h3>White Ball Ornament</h3>
             <p>Glass ball ornament customized with hand-lettered text in your choice of gold or black ink. Includes top ribbon. Local pickup or US shipping.</p>
             <p class="price">$15 / each</p>
-            <a class="btn" href="contact.html?item=white-ball-ornament">Order White Ball Ornament</a>
+            <div class="add-to-cart" data-product-id="white-ball-ornament" data-product-name="White Ball Ornament" data-product-price="15" data-pickup-only="false">
+              <label class="sr-only" for="personalize-white-ball">Personalization for White Ball Ornament</label>
+              <input type="text" id="personalize-white-ball" class="personalize-input" placeholder="Name or phrase for your ornament">
+              <div class="qty-row">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-decrease" aria-label="Decrease quantity">&minus;</button>
+                  <input type="number" class="qty-input" value="1" min="1" max="20" aria-label="Quantity">
+                  <button type="button" class="qty-increase" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="btn add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -124,7 +146,18 @@
             <h3>Clear Round Acrylic Ornament</h3>
             <p>Clear round acrylic ornament customized with hand-lettered text in your choice of white or gold ink. Includes top ribbon. Local pickup or US shipping.</p>
             <p class="price">$25 / each</p>
-            <a class="btn" href="contact.html?item=acrylic-ornament">Order Clear Round Acrylic Ornament</a>
+            <div class="add-to-cart" data-product-id="acrylic-ornament" data-product-name="Clear Round Acrylic Ornament" data-product-price="25" data-pickup-only="false">
+              <label class="sr-only" for="personalize-acrylic">Personalization for Clear Round Acrylic Ornament</label>
+              <input type="text" id="personalize-acrylic" class="personalize-input" placeholder="Name or phrase for your ornament">
+              <div class="qty-row">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-decrease" aria-label="Decrease quantity">&minus;</button>
+                  <input type="number" class="qty-input" value="1" min="1" max="20" aria-label="Quantity">
+                  <button type="button" class="qty-increase" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="btn add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
           </div>
         </article>
 
@@ -135,7 +168,22 @@
             <p>Reusable tote bag with sturdy handles, hand-lettered using permanent fabric pen. Optional personalized teacher name addition available. Local pickup or US shipping.</p>
             <p class="price">$30 / each</p>
             <p class="price-addon">+$5 to add the teacher's name</p>
-            <a class="btn" href="contact.html?item=teacher-bag">Order Teacher Jute Bag</a>
+            <div class="add-to-cart" data-product-id="teacher-bag" data-product-name="Teacher Jute Bag" data-product-price="30" data-pickup-only="false">
+              <label class="sr-only" for="personalize-teacher-bag">Personalization for Teacher Jute Bag</label>
+              <input type="text" id="personalize-teacher-bag" class="personalize-input" placeholder="Text for your tote bag">
+              <label class="addon-checkbox">
+                <input type="checkbox" class="addon-input" data-addon-price="5" data-addon-name="with teacher's name">
+                Add the teacher's name (+$5)
+              </label>
+              <div class="qty-row">
+                <div class="qty-stepper">
+                  <button type="button" class="qty-decrease" aria-label="Decrease quantity">&minus;</button>
+                  <input type="number" class="qty-input" value="1" min="1" max="20" aria-label="Quantity">
+                  <button type="button" class="qty-increase" aria-label="Increase quantity">+</button>
+                </div>
+                <button type="button" class="btn add-to-cart-btn">Add to Cart</button>
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -184,6 +232,7 @@
 </footer>
 
 <script src="js/main.js"></script>
+<script src="js/cart.js"></script>
 <script src="js/signup-form.js"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7a4366d158c54782a2ad3c0936f60c97"}'></script><!-- End Cloudflare Web Analytics -->

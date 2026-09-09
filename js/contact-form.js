@@ -52,7 +52,8 @@
     'Clear Round Acrylic Ornament': { heading: 'Order Your Custom Keepsake', hideDate: true },
     'Teacher Jute Bag': { heading: 'Order Your Custom Keepsake', hideDate: true },
     'White Ball Ornament': { heading: 'Order Your Custom Keepsake', hideDate: true },
-    'Not sure yet': { hideDate: true }
+    'Not sure yet': { hideDate: true },
+    'Product Order': { heading: 'Complete Your Order', hideDate: true }
   };
 
   // Maps a short ?service= URL value to the <select> option's real value.
@@ -96,6 +97,25 @@
     oServiceSelect.value = sMappedItem;
   } else if (sMappedService) {
     oServiceSelect.value = sMappedService;
+  }
+
+  // A cart "Checkout" click (see cart.js) lands here with ?cart=1 and the
+  // order summary stashed in sessionStorage, since online payment isn't
+  // wired up yet — pre-fill the message so nothing has to be retyped, then
+  // clear the stashed copy so a stale draft can't resurface on a later visit.
+  var oMessageField = document.getElementById('message');
+  if (oParams.get('cart') === '1' && oMessageField) {
+    var sPendingOrder = null;
+    try {
+      sPendingOrder = sessionStorage.getItem('thiharper_pending_order');
+      sessionStorage.removeItem('thiharper_pending_order');
+    } catch (e) {
+      // Ignore — message just won't be pre-filled.
+    }
+    if (sPendingOrder) {
+      oServiceSelect.value = 'Product Order';
+      oMessageField.value = sPendingOrder;
+    }
   }
 
   applyServiceFields();
