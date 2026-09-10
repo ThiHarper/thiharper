@@ -166,6 +166,9 @@
     oSubmitBtn.textContent = 'Sending…';
     oStatus.hidden = true;
 
+    var oServiceField = document.getElementById('service');
+    var bWasProductOrder = !!oServiceField && oServiceField.value === 'Product Order';
+
     fetch(oForm.action, {
       method: 'POST',
       body: new FormData(oForm),
@@ -173,6 +176,13 @@
     }).then(function (oResponse) {
       if (oResponse.ok) {
         oForm.reset();
+        // Only clear the cart when this submission actually was a cart
+        // checkout (captured above, before reset() reverts the <select>
+        // to its placeholder) — an unrelated inquiry shouldn't wipe out
+        // items still sitting in the cart from earlier browsing.
+        if (bWasProductOrder && window.ThiHarperCart) {
+          window.ThiHarperCart.clear();
+        }
         showStatus("Thanks! Your message has been sent — I'll be in touch within 1–2 business days.", false);
       } else {
         showStatus('Something went wrong sending your message. Please try again or email me directly.', true);

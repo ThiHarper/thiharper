@@ -363,5 +363,16 @@
     });
   });
 
+  // ---- Public API — lets contact-form.js clear the cart once a cart
+  // checkout's order message has actually been sent, without duplicating
+  // storage/badge logic in that file. ----
+
+  window.ThiHarperCart = {
+    clear: function () {
+      SaveCart([]);
+      RenderBadge();
+    }
+  };
+
   RenderBadge();
 })();
