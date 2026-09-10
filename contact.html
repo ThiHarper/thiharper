@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 <link rel="icon" type="image/png" href="images/logo-mark.png">
 </head>
 <body>
@@ -79,6 +79,10 @@
           <label for="message">Message</label>
           <p class="form-hint" id="messageHint" hidden>Let me know how many pumpkins you'd like and what text or design you'd like on each (e.g. a family name, a phrase, or your own idea)</p>
           <textarea id="message" name="message" required></textarea>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="contact_hp">Leave this field blank</label>
+          <input type="text" id="contact_hp" name="_gotcha" tabindex="-1" autocomplete="off">
         </div>
         <button class="btn" type="submit">Send Inquiry</button>
         <p class="form-note">I typically reply within 1&ndash;2 business days</p>

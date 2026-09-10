@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Jost:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css?v=9">
+<link rel="stylesheet" href="css/style.css?v=10">
 <link rel="icon" type="image/png" href="images/logo-mark.png">
 </head>
 <body>
@@ -181,6 +181,10 @@
         <label for="signup_email" class="sr-only">Email address</label>
         <input type="email" id="signup_email" name="email" placeholder="Your email address" required>
         <input type="hidden" name="_subject" value="New email signup">
+        <div class="hp-field" aria-hidden="true">
+          <label for="signup_hp">Leave this field blank</label>
+          <input type="text" id="signup_hp" name="_gotcha" tabindex="-1" autocomplete="off">
+        </div>
         <button class="btn" type="submit">Sign Up</button>
       </form>
       <p class="form-status" id="signupStatus" role="status" aria-live="polite" tabindex="-1" hidden></p>

@@ -1017,6 +1017,16 @@ p { margin: 0 0 var(--space-2); }
   padding-left: var(--space-3);
 }
 
+/* ---- Honeypot spam trap ---- */
+/* Off-screen rather than display:none/hidden — some spam bots skip fields
+   they detect as hidden, so this stays in normal flow but out of view. */
+
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+
 .legal-content li {
   margin-bottom: var(--space-1);
 }
