@@ -1179,8 +1179,16 @@ p { margin: 0 0 var(--space-2); }
 }
 
 .hw-console-body .ok {
-  color: var(--hw-accent-deep);
+  color: #1f9d55;
   font-weight: 600;
+}
+
+.hw-console-caption {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+  text-align: center;
+  margin: 0 0 0.6em;
 }
 
 .hw-console-body strong {
