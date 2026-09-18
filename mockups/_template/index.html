@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Business Name] &mdash; Homepage Preview</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/mockups/mock-base.css">
+<style>
+  /* Per-client brand override. This is the ONLY thing you usually need to
+     touch to restyle a copy of this template for a new client — swap
+     these for their real brand colors (or a palette matching the vibe
+     they described), and optionally the fonts above. */
+  :root {
+    --mock-accent: #b5563c;
+  }
+</style>
+</head>
+<!--
+  HOW TO USE THIS TEMPLATE FOR A NEW CLIENT
+  1. Copy this whole "_template" folder to "mockups/<client-slug>/"
+     (e.g. mockups/yoshi-bakery/) — the leading underscore keeps this
+     folder itself off the live site.
+  2. Replace every "[Business Name]" / "[Year]" placeholder and the lorem
+     ipsum copy below with real (or client-provided) content.
+  3. Update --mock-accent above (and the font links, if their vibe calls
+     for something else) to match their brand.
+  4. Pick a passcode for this client, get its SHA-256 hash (ask Claude),
+     and replace data-passcode-hash below. The current value below is the
+     hash of "changeme2026" — a placeholder, not a real client code.
+  5. Never put the plain passcode anywhere in this file.
+-->
+<body data-passcode-hash="d4d6209550be592f2663cec93e6ed62a953b8fda4eb15b87d5bc6aad1de578ac">
+
+<section class="mock-gate" id="mockGate">
+  <div class="mock-gate-box">
+    <h1>Private Preview</h1>
+    <p>This is a first look at your homepage draft. Enter your invitation code to view it.</p>
+    <form class="mock-gate-form" id="mockGateForm" autocomplete="off">
+      <label for="mock_passcode" class="sr-only">Invitation code</label>
+      <input type="password" id="mock_passcode" placeholder="Invitation code" autocomplete="off" required>
+      <button class="mock-btn" type="submit">View Preview</button>
+      <p class="mock-gate-error" id="mockGateError" role="alert" hidden>That code isn't right &mdash; try again.</p>
+    </form>
+  </div>
+</section>
+
+<div id="mockProtected" hidden>
+  <div class="mock-ribbon">Private preview by <strong>Built by Thi</strong> &mdash; <a href="https://thiharper.com/custom-websites">see the full service &rarr;</a></div>
+
+  <header class="mock-nav">
+    <a class="mock-brand" href="#top">[Business Name]</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="mock-hero" id="top">
+    <div class="mock-container">
+      <h1>[Business Name]</h1>
+      <p class="mock-lede">Lorem ipsum dolor sit amet, consectetur adipiscing elit &mdash; a one-line tagline about what this business does and who it's for.</p>
+      <button class="mock-btn mock-inert" data-mock-message="This becomes live when we launch!">Get Started</button>
+    </div>
+  </section>
+
+  <section class="mock-section mock-section-alt" id="about">
+    <div class="mock-container mock-section-head">
+      <h2>About [Business Name]</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p>
+    </div>
+  </section>
+
+  <section class="mock-section" id="services">
+    <div class="mock-container mock-section-head">
+      <h2>What We Offer</h2>
+      <p>A quick look at the services this business provides.</p>
+    </div>
+    <div class="mock-grid-3">
+      <div class="mock-card">
+        <h3>Service One</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="mock-card">
+        <h3>Service Two</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+      <div class="mock-card">
+        <h3>Service Three</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mock-section mock-section-alt" id="contact">
+    <div class="mock-container mock-section-head">
+      <h2>Get in Touch</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+    <form class="mock-form mock-inert-form" data-mock-message="This becomes live when we launch!">
+      <label for="mock_name">Name</label>
+      <input type="text" id="mock_name">
+      <label for="mock_email">Email</label>
+      <input type="email" id="mock_email">
+      <label for="mock_message">Message</label>
+      <textarea id="mock_message"></textarea>
+      <button class="mock-btn" type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer class="mock-footer">
+    &copy; [Year] [Business Name]
+  </footer>
+</div>
+
+<script src="/mockups/gate.js"></script>
+<script src="/mockups/mock-interactions.js"></script>
+</body>
+</html>

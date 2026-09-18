@@ -1076,6 +1076,14 @@ p { margin: 0 0 var(--space-2); }
   text-align: left;
 }
 
+.hw-thi-mark {
+  font-family: 'Cormorant Garamond', var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  text-transform: none;
+  font-size: 1.15em;
+}
+
 .hw-signature {
   font-family: 'Cormorant Garamond', var(--font-display);
   font-style: italic;

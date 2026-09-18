@@ -1,0 +1,314 @@
+/* ==========================================================================
+   Shared base styles for client homepage mockups under /mockups/. Colors
+   and fonts are CSS custom properties — each client's own index.html
+   overrides just these tokens in a small inline <style> block, so this
+   file never needs editing per client.
+   ========================================================================== */
+
+:root {
+  --mock-bg: #fbfaf8;
+  --mock-surface: #ffffff;
+  --mock-ink: #1c1c1c;
+  --mock-muted: #6b6b6b;
+  --mock-line: #e5e1da;
+  --mock-accent: #b5563c;
+  --mock-font-display: 'Fraunces', Georgia, serif;
+  --mock-font-body: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --mock-radius: 10px;
+  --mock-max-width: 1080px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--mock-bg);
+  color: var(--mock-ink);
+  font-family: var(--mock-font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1, h2, h3 {
+  font-family: var(--mock-font-display);
+  line-height: 1.15;
+  margin: 0 0 0.5em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+}
+
+p {
+  margin: 0 0 1em;
+  color: var(--mock-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.mock-container {
+  max-width: var(--mock-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---- preview ribbon ---- */
+
+.mock-ribbon {
+  background: #14181c;
+  color: #f4f1ea;
+  text-align: center;
+  font-size: 0.8rem;
+  padding: 8px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.mock-ribbon a {
+  color: #e7a48c;
+  text-decoration: underline;
+}
+
+/* ---- nav ---- */
+
+.mock-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--mock-line);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.mock-nav .mock-brand {
+  font-family: var(--mock-font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mock-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+.mock-nav a {
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+/* ---- hero ---- */
+
+.mock-hero {
+  padding: 80px 24px 60px;
+  text-align: center;
+}
+
+.mock-hero p.mock-lede {
+  max-width: 42ch;
+  margin: 0 auto 28px;
+  font-size: 1.1rem;
+}
+
+.mock-btn {
+  display: inline-block;
+  padding: 0.85em 1.8em;
+  background: var(--mock-accent);
+  color: #fff;
+  border-radius: var(--mock-radius);
+  text-decoration: none;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.mock-btn:hover {
+  opacity: 0.9;
+}
+
+/* ---- sections ---- */
+
+.mock-section {
+  padding: 60px 24px;
+}
+
+.mock-section-alt {
+  background: var(--mock-surface);
+  border-top: 1px solid var(--mock-line);
+  border-bottom: 1px solid var(--mock-line);
+}
+
+.mock-section-head {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  text-align: center;
+}
+
+.mock-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: var(--mock-max-width);
+  margin: 0 auto;
+}
+
+@media (max-width: 780px) {
+  .mock-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mock-card {
+  background: var(--mock-surface);
+  border: 1px solid var(--mock-line);
+  border-radius: var(--mock-radius);
+  padding: 28px;
+}
+
+.mock-card h3 {
+  font-size: 1.15rem;
+}
+
+/* ---- contact form ---- */
+
+.mock-form {
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.mock-form label {
+  display: block;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.mock-form input,
+.mock-form textarea {
+  width: 100%;
+  padding: 0.7em;
+  margin-bottom: 16px;
+  border: 1px solid var(--mock-line);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  background: var(--mock-surface);
+  color: var(--mock-ink);
+}
+
+.mock-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+footer.mock-footer {
+  text-align: center;
+  padding: 32px 24px;
+  font-size: 0.85rem;
+  color: var(--mock-muted);
+}
+
+/* ---- gate screen ---- */
+
+.mock-gate {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+}
+
+.mock-gate[hidden] {
+  display: none;
+}
+
+.mock-gate-box {
+  max-width: 360px;
+}
+
+.mock-gate-box h1 {
+  font-size: 1.6rem;
+}
+
+.mock-gate-form input {
+  width: 100%;
+  padding: 0.8em;
+  margin: 20px 0 12px;
+  border: 1px solid var(--mock-line);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.mock-gate-error {
+  color: #a33;
+  font-size: 0.9rem;
+  margin-top: 12px;
+}
+
+.mock-gate-error[hidden] {
+  display: none;
+}
+
+/* ---- toast for inert preview interactions ---- */
+
+.mock-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translate(-50%, 20px);
+  background: #14181c;
+  color: #f4f1ea;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 100;
+  max-width: 90vw;
+  text-align: center;
+}
+
+.mock-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
