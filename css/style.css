@@ -1159,7 +1159,7 @@ p { margin: 0 0 var(--space-2); }
 }
 
 .hw-console-bar .hw-dot:nth-child(3) {
-  background: var(--hw-accent);
+  background: #1f9d55;
 }
 
 .hw-console-title {
