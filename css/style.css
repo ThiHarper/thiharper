@@ -1060,6 +1060,22 @@ p { margin: 0 0 var(--space-2); }
   color: var(--hw-accent-deep);
 }
 
+.hw-gate-form {
+  max-width: 320px;
+  margin: var(--space-3) auto 0;
+  text-align: left;
+}
+
+.hw-gate-form .btn {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+
+.hw-gate-form .form-status-error {
+  text-align: left;
+}
+
 .hw-signature {
   font-family: 'Cormorant Garamond', var(--font-display);
   font-style: italic;

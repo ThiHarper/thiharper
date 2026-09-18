@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /custom-websites/
 
 Sitemap: https://thiharper.com/sitemap.xml
