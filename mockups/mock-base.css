@@ -145,6 +145,50 @@ p {
   font-size: 1.1rem;
 }
 
+/* Optional two-column hero variant for clients with a photo. Use in place
+   of a plain .mock-container inside .mock-hero when there's an image. */
+.mock-hero-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  text-align: left;
+  max-width: var(--mock-max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+@media (max-width: 780px) {
+  .mock-hero-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+
+.mock-hero-grid .mock-lede {
+  margin-left: 0;
+}
+
+@media (max-width: 780px) {
+  .mock-hero-grid .mock-lede {
+    margin: 0 auto 28px;
+  }
+}
+
+.mock-hero-media {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--mock-radius);
+  overflow: hidden;
+  background: var(--mock-line);
+}
+
+.mock-hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 .mock-btn {
   display: inline-block;
   padding: 0.85em 1.8em;
