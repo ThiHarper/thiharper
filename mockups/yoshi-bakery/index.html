@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yoshi Bakery &mdash; Homepage Preview</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/mockups/mock-base.css">
+<style>
+  :root {
+    --mock-accent: #c1852e;
+  }
+</style>
+</head>
+<body data-passcode-hash="e915b54017eaf12f12b1eb8b2ad161eaf2f1e85746164f2a4a32250b9068033b">
+
+<section class="mock-gate" id="mockGate">
+  <div class="mock-gate-box">
+    <h1>Private Preview</h1>
+    <p>This is a first look at your homepage draft. Enter your invitation code to view it.</p>
+    <form class="mock-gate-form" id="mockGateForm" autocomplete="off">
+      <label for="mock_passcode" class="sr-only">Invitation code</label>
+      <input type="password" id="mock_passcode" placeholder="Invitation code" autocomplete="off" required>
+      <button class="mock-btn" type="submit">View Preview</button>
+      <p class="mock-gate-error" id="mockGateError" role="alert" hidden>That code isn't right &mdash; try again.</p>
+    </form>
+  </div>
+</section>
+
+<div id="mockProtected" hidden>
+  <div class="mock-ribbon">Private preview by <strong>Built by Thi</strong> &mdash; <a href="https://thiharper.com/custom-websites">see the full service &rarr;</a></div>
+
+  <header class="mock-nav">
+    <a class="mock-brand" href="#top">Yoshi Bakery</a>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Menu</a></li>
+        <li><a href="#contact">Order</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="mock-hero" id="top">
+    <div class="mock-container">
+      <h1>Yoshi Bakery</h1>
+      <p class="mock-lede">Small-batch dog treats, baked fresh with human-grade ingredients &mdash; because your best friend deserves better than a bag off the shelf.</p>
+      <button class="mock-btn mock-inert" data-mock-message="This becomes live when we launch!">See This Week's Menu</button>
+    </div>
+  </section>
+
+  <section class="mock-section mock-section-alt" id="about">
+    <div class="mock-container mock-section-head">
+      <h2>Why Yoshi Bakery</h2>
+      <p>It started with one very good boy who turned his nose up at anything store-bought. A few years of recipe testing later, Yoshi Bakery bakes small batches of dog treats every week using the same ingredients you'd find in your own kitchen &mdash; peanut butter, pumpkin, oats, no fillers, no mystery meat. Every batch is baked to order and picked up (or shipped) fresh.</p>
+    </div>
+  </section>
+
+  <section class="mock-section" id="services">
+    <div class="mock-container mock-section-head">
+      <h2>What We Bake</h2>
+      <p>A rotating menu of treats, always made in small batches so nothing sits on a shelf.</p>
+    </div>
+    <div class="mock-grid-3">
+      <div class="mock-card">
+        <h3>Weekly Treat Box</h3>
+        <p>A rotating assortment of fresh-baked treats, delivered or ready for pickup every Friday.</p>
+      </div>
+      <div class="mock-card">
+        <h3>Birthday &amp; Gotcha Day Cakes</h3>
+        <p>Custom-decorated pup cakes for birthdays, adoption anniversaries, or any excuse to celebrate.</p>
+      </div>
+      <div class="mock-card">
+        <h3>Wholesale for Groomers &amp; Shops</h3>
+        <p>Bulk batches for local groomers, boutiques, and pet stores who want fresh, local treats on their shelves.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="mock-section mock-section-alt" id="contact">
+    <div class="mock-container mock-section-head">
+      <h2>Order or Ask a Question</h2>
+      <p>Tell us about your dog (allergies welcome) and we'll help you pick the right box.</p>
+    </div>
+    <form class="mock-form mock-inert-form" data-mock-message="This becomes live when we launch!">
+      <label for="mock_name">Name</label>
+      <input type="text" id="mock_name">
+      <label for="mock_email">Email</label>
+      <input type="email" id="mock_email">
+      <label for="mock_message">Tell us about your dog</label>
+      <textarea id="mock_message" placeholder="Dog's name, any allergies, what you're looking for..."></textarea>
+      <button class="mock-btn" type="submit">Send</button>
+    </form>
+  </section>
+
+  <footer class="mock-footer">
+    &copy; 2026 Yoshi Bakery
+  </footer>
+</div>
+
+<script src="/mockups/gate.js"></script>
+<script src="/mockups/mock-interactions.js"></script>
+</body>
+</html>
