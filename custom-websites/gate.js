@@ -12,7 +12,7 @@
 // Claude to do it), and replace PASSCODE_HASH below. Never store the plain
 // passcode in this file.
 (function () {
-  var PASSCODE_HASH = '7c9afb145951f3e42d58ad936d0e519476392177fffb746906fca74a4e3b10fa';
+  var PASSCODE_HASH = 'ee22d87e1b87ed9ff3f138c97417cbec205facda7085d51f6b0ee01d4a769252';
   var STORAGE_KEY = 'hw_gate_unlocked';
 
   var oGateSection = document.getElementById('hwGate');

@@ -1,4 +1,4 @@
-// Submits the Harper Web intake form via fetch instead of a full-page
+// Submits the Harper Studio intake form via fetch instead of a full-page
 // redirect to Formspree, matching contact-form.js's pattern so a visitor
 // clicking "Go back" from the Formspree thanks page never sees stale
 // filled-in values.
