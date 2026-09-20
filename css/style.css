@@ -1060,6 +1060,28 @@ p { margin: 0 0 var(--space-2); }
   color: var(--hw-accent-deep);
 }
 
+.websites-page .site-header .brand {
+  font-family: 'Cormorant Garamond', var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--color-ink);
+}
+
+.websites-page .site-nav a.hw-nav-cal {
+  font-size: 0.85rem;
+  color: var(--color-ink-soft);
+}
+
+.websites-page .hw-footer-mark {
+  font-family: 'Cormorant Garamond', var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: var(--color-ivory);
+  margin: 0 0 var(--space-2);
+}
+
 .hw-gate-form {
   max-width: 320px;
   margin: var(--space-3) auto 0;
