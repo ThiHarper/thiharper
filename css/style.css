@@ -1153,6 +1153,10 @@ p { margin: 0 0 var(--space-2); }
   .hw-hero-grid .lede {
     margin: 0 auto var(--space-3);
   }
+
+  .hw-hero-grid .btn-row {
+    justify-content: center;
+  }
 }
 
 .hw-console {

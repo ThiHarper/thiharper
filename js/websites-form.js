@@ -12,18 +12,6 @@
 
   var oSubmitBtn = oForm.querySelector('button[type="submit"]');
   var sSubmitLabel = oSubmitBtn.textContent;
-  var aRequiredFields = oForm.querySelectorAll('[required]');
-
-  function updateSubmitState() {
-    oSubmitBtn.disabled = !oForm.checkValidity();
-  }
-
-  Array.prototype.forEach.call(aRequiredFields, function (oField) {
-    oField.addEventListener('input', updateSubmitState);
-    oField.addEventListener('change', updateSubmitState);
-  });
-
-  updateSubmitState();
 
   function showStatus(sMessage, bIsError) {
     oStatus.textContent = sMessage;
@@ -34,6 +22,11 @@
   }
 
   oForm.addEventListener('submit', function (oEvent) {
+    if (!oForm.checkValidity()) {
+      oForm.reportValidity();
+      return;
+    }
+
     oEvent.preventDefault();
 
     oSubmitBtn.disabled = true;
@@ -54,8 +47,8 @@
     }).catch(function () {
       showStatus('Something went wrong sending your message. Please try again or email me directly.', true);
     }).finally(function () {
+      oSubmitBtn.disabled = false;
       oSubmitBtn.textContent = sSubmitLabel;
-      updateSubmitState();
     });
   });
 })();
