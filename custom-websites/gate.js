@@ -28,6 +28,11 @@
   function reveal() {
     oGateSection.hidden = true;
     oProtected.hidden = false;
+
+    var aGatedNav = document.querySelectorAll('.hw-nav-gated');
+    Array.prototype.forEach.call(aGatedNav, function (oItem) {
+      oItem.hidden = false;
+    });
   }
 
   function isUnlocked() {

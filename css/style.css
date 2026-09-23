@@ -1134,6 +1134,10 @@ p { margin: 0 0 var(--space-2); }
   color: var(--color-ink-soft);
 }
 
+.site-nav .hw-nav-gated[hidden] {
+  display: none;
+}
+
 .websites-page .hw-footer-mark {
   font-family: 'Cormorant Garamond', var(--font-display);
   font-style: italic;
