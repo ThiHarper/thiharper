@@ -1606,3 +1606,43 @@ p { margin: 0 0 var(--space-2); }
   background: transparent;
   color: var(--hw-accent);
 }
+
+.hw-about {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hw-about-photo {
+  width: 140px;
+  height: 140px;
+}
+
+.hw-about-text p {
+  color: var(--color-ink-soft);
+}
+
+.hw-about-text a {
+  color: var(--hw-accent-deep);
+}
+
+.hw-fit-note {
+  margin: 0.5em 0 0;
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-ink-soft);
+}
+
+.hw-submit-btn:not(:disabled) {
+  background: var(--hw-accent-deep);
+  border-color: var(--hw-accent-deep);
+}
+
+.hw-submit-btn:not(:disabled):hover {
+  background: transparent;
+  color: var(--hw-accent-deep);
+}
+
+.hw-submit-hint {
+  margin: 0.5em 0 0.6em;
+}
