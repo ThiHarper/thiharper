@@ -1691,6 +1691,10 @@ p { margin: 0 0 var(--space-2); }
   color: var(--hw-accent-deep);
 }
 
+.hw-about-aside {
+  font-size: 0.85rem;
+}
+
 .hw-fit-note {
   margin: 0.5em 0 0;
   font-size: 0.85rem;
