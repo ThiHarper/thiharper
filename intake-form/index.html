@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tell Me About Your Business — Built by Thi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital@1&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    box-sizing: border-box;
+    --cream: #f8f7f4;
+    --cream-panel: #ffffff;
+    --ink: #111111;
+    --ink-soft: #4a4744;
+    --line: #dedad2;
+    --terracotta: #b85b38;
+    --terracotta-soft: #f3e3da;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  :root:not([data-theme="light"]) {
+    @media (prefers-color-scheme: dark) {
+      --cream: #17140f;
+      --cream-panel: #201c16;
+      --ink: #f5f1ea;
+      --ink-soft: #c9c2b6;
+      --line: #3a352b;
+      --terracotta: #e08a63;
+      --terracotta-soft: #2c2019;
+    }
+  }
+  :root[data-theme="dark"]{
+    --cream: #17140f;
+    --cream-panel: #201c16;
+    --ink: #f5f1ea;
+    --ink-soft: #c9c2b6;
+    --line: #3a352b;
+    --terracotta: #e08a63;
+    --terracotta-soft: #2c2019;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-padding-top: env(safe-area-inset-top, 0px);}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:Sora,"Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:680px;margin:0 auto;padding:48px 24px 96px;}
+  header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;}
+  .wordmark{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic;
+    font-size:22px;
+    color:var(--ink);
+  }
+  .intro-eyebrow{
+    font-size:13px;
+    letter-spacing:0.06em;
+    color:var(--terracotta);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  h1{
+    font-size:clamp(28px,5vw,38px);
+    line-height:1.15;
+    margin:0 0 16px;
+    letter-spacing:-0.01em;
+  }
+  .lede{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic;
+    font-size:20px;
+    line-height:1.5;
+    color:var(--ink-soft);
+    max-width:56ch;
+    margin:0 0 44px;
+  }
+  .section{
+    background:var(--cream-panel);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:32px;
+    margin-bottom:24px;
+  }
+  .section-num{
+    font-size:13px;
+    font-weight:700;
+    color:var(--terracotta);
+    letter-spacing:0.04em;
+    margin-bottom:6px;
+  }
+  .section h2{
+    font-size:21px;
+    margin:0 0 6px;
+  }
+  .section-note{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    margin:0 0 24px;
+    line-height:1.5;
+  }
+  .field{margin-bottom:20px;}
+  .field:last-child{margin-bottom:0;}
+  label{
+    display:block;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:6px;
+  }
+  .optional{
+    font-weight:400;
+    color:var(--ink-soft);
+    font-size:13px;
+  }
+  .hint{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 8px;
+    line-height:1.4;
+  }
+  input[type="text"],input[type="email"],input[type="tel"],input[type="url"],textarea{
+    width:100%;
+    font-family:inherit;
+    font-size:15px;
+    padding:12px 14px;
+    border-radius:9px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    color:var(--ink);
+  }
+  input:focus,textarea:focus{
+    outline:2px solid var(--terracotta);
+    outline-offset:1px;
+  }
+  textarea{resize:vertical;min-height:88px;line-height:1.5;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;}
+  .chip{
+    font-size:13.5px;
+    padding:9px 16px;
+    border-radius:999px;
+    border:1px solid var(--line);
+    background:var(--cream);
+    color:var(--ink);
+    cursor:pointer;
+    user-select:none;
+    font-family:inherit;
+  }
+  .chip[aria-pressed="true"]{
+    background:var(--terracotta);
+    border-color:var(--terracotta);
+    color:#fff;
+  }
+  .radio-row{display:flex;gap:20px;flex-wrap:wrap;}
+  .radio-opt{display:flex;align-items:center;gap:7px;font-size:14.5px;}
+  .radio-opt input{accent-color:var(--terracotta);width:16px;height:16px;}
+  .send-panel{
+    text-align:center;
+    padding:40px 24px;
+    border-radius:16px;
+    background:var(--terracotta-soft);
+    border:1px solid var(--line);
+  }
+  .send-panel p{
+    font-size:15px;
+    color:var(--ink-soft);
+    max-width:44ch;
+    margin:0 auto 20px;
+    line-height:1.55;
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:inherit;
+    font-size:15.5px;
+    font-weight:600;
+    padding:15px 30px;
+    border-radius:999px;
+    border:none;
+    cursor:pointer;
+    text-decoration:none;
+  }
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:disabled{opacity:0.5;cursor:not-allowed;}
+  .send-status{
+    font-size:13.5px;
+    color:var(--terracotta);
+    margin-top:14px;
+    min-height:18px;
+  }
+  .send-status.is-error{color:#b13a3a;}
+  .confirm-panel{
+    text-align:center;
+    padding:56px 24px;
+    border-radius:16px;
+    background:var(--terracotta-soft);
+    border:1px solid var(--line);
+  }
+  .confirm-check{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--terracotta);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    margin:0 auto 18px;font-size:22px;
+  }
+  .confirm-panel h2{font-size:23px;margin:0 0 10px;}
+  .confirm-panel p{font-size:15px;color:var(--ink-soft);max-width:42ch;margin:0 auto;line-height:1.55;}
+  footer{
+    text-align:center;
+    font-size:13px;
+    color:var(--ink-soft);
+    margin-top:40px;
+  }
+  [hidden]{display:none !important;}
+  @media (max-width:520px){
+    .section{padding:24px 20px;}
+    .wrap{padding:32px 18px 72px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="wordmark">Built by Thi</div>
+  </header>
+
+  <div id="form-view">
+    <div class="intro-eyebrow">GET STARTED</div>
+    <h1>Tell me about your business</h1>
+    <p class="lede">Don't let this list overwhelm you — fill out what you can and leave the rest blank. We'll get the ball rolling from there! :)</p>
+
+    <form id="intake-form" method="POST" action="https://formspree.io/f/xeaozrky">
+      <input type="text" name="_gotcha" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;" tabindex="-1" autocomplete="off">
+      <input type="hidden" name="_subject" id="email-subject" value="New website intake submission">
+      <input type="hidden" name="Look & feel" id="vibe-hidden" value="">
+
+      <div class="section">
+        <div class="section-num">01</div>
+        <h2>Business essentials</h2>
+        <div class="field">
+          <label for="biz-name">Business name <span class="optional">(exact spelling)</span></label>
+          <input type="text" id="biz-name" name="Business name">
+        </div>
+        <div class="field">
+          <label for="tagline">Tagline / slogan <span class="optional">(optional)</span></label>
+          <input type="text" id="tagline" name="Tagline">
+        </div>
+        <div class="field">
+          <label for="phone">Phone number</label>
+          <input type="tel" id="phone" name="Phone">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="Email">
+        </div>
+        <div class="field">
+          <label for="address">Physical address / service area</label>
+          <input type="text" id="address" name="Address or service area">
+        </div>
+        <div class="field">
+          <label for="hours">Hours of operation</label>
+          <input type="text" id="hours" name="Hours">
+        </div>
+        <div class="field">
+          <label for="social">Social media links <span class="optional">(Instagram, Facebook, Yelp, etc.)</span></label>
+          <textarea id="social" name="Social links" rows="2"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">02</div>
+        <h2>Core offerings &amp; pricing</h2>
+        <div class="field">
+          <label for="services">What services do you offer?</label>
+          <p class="hint">List them out or describe them roughly.</p>
+          <textarea id="services" name="Services offered" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label for="pricing">What are your prices or pricing structure?</label>
+          <textarea id="pricing" name="Pricing" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label>Do you offer free estimates or consultations?</label>
+          <div class="radio-row">
+            <label class="radio-opt"><input type="radio" name="Free estimates or consultations" value="Yes"> Yes</label>
+            <label class="radio-opt"><input type="radio" name="Free estimates or consultations" value="No"> No</label>
+            <label class="radio-opt"><input type="radio" name="Free estimates or consultations" value="Sometimes"> Sometimes</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">03</div>
+        <h2>About &amp; background</h2>
+        <div class="field">
+          <label for="story">What's the story behind your business? Why did you start it?</label>
+          <textarea id="story" name="Story" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="different">What makes your business different or better than competitors?</label>
+          <textarea id="different" name="What makes them different" rows="3"></textarea>
+        </div>
+        <div class="field">
+          <label for="want-known">What do you want new clients to know about working with you?</label>
+          <textarea id="want-known" name="What they want clients to know" rows="3"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">04</div>
+        <h2>Call to action</h2>
+        <div class="field">
+          <label for="cta">When someone lands on your site, what's the one thing you want them to do?</label>
+          <p class="hint">e.g. call now, fill out a quote form, email you, book online</p>
+          <input type="text" id="cta" name="Main call to action">
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">05</div>
+        <h2>Branding &amp; visual style</h2>
+        <div class="field">
+          <label for="brand-colors">Brand colors <span class="optional">(hex codes if you have them)</span></label>
+          <input type="text" id="brand-colors" name="Brand colors">
+        </div>
+        <div class="field">
+          <label>Look &amp; feel <span class="optional">(pick what fits, or skip if you gave hex codes above)</span></label>
+          <div class="chip-row" id="vibe-chips">
+            <button type="button" class="chip" data-value="Warm & cozy">Warm &amp; cozy</button>
+            <button type="button" class="chip" data-value="Clean & modern">Clean &amp; modern</button>
+            <button type="button" class="chip" data-value="Bold & energetic">Bold &amp; energetic</button>
+            <button type="button" class="chip" data-value="Earthy & organic">Earthy &amp; organic</button>
+            <button type="button" class="chip" data-value="Soft & calm">Soft &amp; calm</button>
+          </div>
+        </div>
+        <div class="field">
+          <label for="colors-avoid">Favorite colors, or colors to avoid</label>
+          <input type="text" id="colors-avoid" name="Favorite or avoided colors">
+        </div>
+        <div class="field">
+          <label for="inspiration">Inspiration sites <span class="optional">(1–2 links whose style or colors you love)</span></label>
+          <textarea id="inspiration" name="Inspiration sites" rows="2"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-num">06</div>
+        <h2>Photos &amp; testimonials</h2>
+        <div class="field">
+          <label for="testimonials">Customer reviews or quotes <span class="optional">(paste any you have)</span></label>
+          <textarea id="testimonials" name="Reviews or quotes" rows="3"></textarea>
+        </div>
+        <p class="hint">Have high-res photos, a logo, or headshots? Drop them in the shared Photos folder rather than pasting them here.</p>
+      </div>
+
+      <div class="send-panel">
+        <p>Double-check everything above looks right, then send it my way.</p>
+        <button type="submit" class="btn btn-primary" id="send-btn">Send My Answers</button>
+        <div class="send-status" id="send-status"></div>
+      </div>
+    </form>
+  </div>
+
+  <div id="confirm-view" hidden>
+    <div class="confirm-panel">
+      <div class="confirm-check">✓</div>
+      <h2>Got it, thank you!</h2>
+      <p>Your answers are in. I typically follow up within 1–2 business days.</p>
+    </div>
+  </div>
+
+  <footer>Built by Thi · questions? just text or email me!</footer>
+
+</div>
+
+<script>
+(function(){
+  document.querySelectorAll('.chip').forEach(function(chip){
+    chip.addEventListener('click', function(){
+      var pressed = chip.getAttribute('aria-pressed') === 'true';
+      chip.setAttribute('aria-pressed', pressed ? 'false' : 'true');
+      var selected = [...document.querySelectorAll('.chip[aria-pressed="true"]')].map(c => c.dataset.value);
+      document.getElementById('vibe-hidden').value = selected.join(', ');
+    });
+  });
+
+  var form = document.getElementById('intake-form');
+  var sendBtn = document.getElementById('send-btn');
+  var status = document.getElementById('send-status');
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var bizName = document.getElementById('biz-name').value.trim();
+    document.getElementById('email-subject').value = 'Website intake — ' + (bizName || 'new client');
+
+    sendBtn.disabled = true;
+    status.classList.remove('is-error');
+    status.textContent = 'Sending…';
+
+    try{
+      var res = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok){
+        document.getElementById('form-view').hidden = true;
+        document.getElementById('confirm-view').hidden = false;
+        window.scrollTo({top:0, behavior:'smooth'});
+      } else {
+        throw new Error('submission failed');
+      }
+    } catch(err){
+      status.textContent = 'Something went wrong — please try again, or email me directly.';
+      status.classList.add('is-error');
+      sendBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
