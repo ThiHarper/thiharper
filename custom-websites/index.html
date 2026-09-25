@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,600&family=Jost:wght@400;500&family=Sora:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/style.css?v=24">
+<link rel="stylesheet" href="/css/style.css?v=25">
 <link rel="icon" type="image/png" href="/images/logo-mark.png">
 </head>
 <body class="websites-page">
@@ -297,15 +297,15 @@
       <div class="container">
         <form class="contact-form" id="websitesForm" action="https://formspree.io/f/xyeydabn" method="POST">
           <div class="form-row">
-            <label for="hw_name">Your name</label>
+            <label for="hw_name">Your name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="hw_name" name="name" required>
           </div>
           <div class="form-row">
-            <label for="hw_email">Email</label>
+            <label for="hw_email">Email <span class="req" aria-hidden="true">*</span></label>
             <input type="email" id="hw_email" name="email" required>
           </div>
           <div class="form-row">
-            <label for="hw_business">Business name</label>
+            <label for="hw_business">Business name <span class="req" aria-hidden="true">*</span></label>
             <input type="text" id="hw_business" name="business_name" required>
           </div>
           <div class="form-row">
@@ -313,16 +313,16 @@
             <input type="text" id="hw_current_site" name="current_website">
           </div>
           <div class="form-row">
-            <label for="hw_domain">Preferred domain name <span class="optional">(optional)</span></label>
+            <label for="hw_domain">Preferred domain name</label>
             <input type="text" id="hw_domain" name="preferred_domain">
           </div>
           <div class="form-row">
-            <label for="hw_colors">Brand colors or vibe <span class="optional">(optional)</span></label>
+            <label for="hw_colors">Brand colors or vibe <span class="req" aria-hidden="true">*</span></label>
             <p class="form-hint">Helps me get your free mockup closer to your vision on the first try.</p>
-            <input type="text" id="hw_colors" name="brand_colors" placeholder="e.g. warm &amp; earthy, or hex codes if you have them">
+            <input type="text" id="hw_colors" name="brand_colors" required placeholder="e.g. warm &amp; earthy, or hex codes if you have them">
           </div>
           <div class="form-row">
-            <label for="hw_brief">Target launch timeline &amp; project scope</label>
+            <label for="hw_brief">Target launch timeline &amp; project scope <span class="req" aria-hidden="true">*</span></label>
             <p class="form-hint">When would you like to launch, and what pages or features do you have in mind?</p>
             <textarea id="hw_brief" name="scope_brief" required></textarea>
           </div>
@@ -332,7 +332,7 @@
             <input type="text" id="hw_hp" name="_gotcha" tabindex="-1" autocomplete="off">
           </div>
           <button class="btn hw-submit-btn" type="submit">Send My Project Details</button>
-          <p class="form-hint hw-submit-hint" id="hwSubmitHint">Fill out the fields above to send.</p>
+          <p class="form-hint hw-submit-hint" id="hwSubmitHint">* Required fields</p>
           <p class="form-note">I typically reply within 1&ndash;2 business days</p>
           <p class="form-status" id="websitesFormStatus" role="status" aria-live="polite" tabindex="-1" hidden></p>
         </form>
@@ -360,7 +360,7 @@
 
 <script src="/js/main.js?v=1"></script>
 <script src="/custom-websites/gate.js?v=1"></script>
-<script src="/js/websites-form.js?v=1"></script>
+<script src="/js/websites-form.js?v=2"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <!-- Cloudflare Web Analytics --><script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7a4366d158c54782a2ad3c0936f60c97"}'></script><!-- End Cloudflare Web Analytics -->
 </body>

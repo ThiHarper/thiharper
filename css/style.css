@@ -871,6 +871,11 @@ p { margin: 0 0 var(--space-2); }
   margin-bottom: 0.4em;
 }
 
+.form-row label .req {
+  color: var(--hw-accent-deep, var(--color-ink));
+  font-weight: normal;
+}
+
 .form-row label .optional {
   color: var(--color-ink-soft);
   font-weight: normal;

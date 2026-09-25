@@ -12,15 +12,11 @@
 
   var oSubmitBtn = oForm.querySelector('button[type="submit"]');
   var sSubmitLabel = oSubmitBtn.textContent;
-  var oSubmitHint = document.getElementById('hwSubmitHint');
   var aRequiredFields = oForm.querySelectorAll('[required]');
 
   function updateSubmitState() {
     var bValid = oForm.checkValidity();
     oSubmitBtn.disabled = !bValid;
-    if (oSubmitHint) {
-      oSubmitHint.hidden = bValid;
-    }
   }
 
   Array.prototype.forEach.call(aRequiredFields, function (oField) {
